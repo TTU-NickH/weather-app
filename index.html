@@ -49,7 +49,7 @@
 
                 <div class="row text-center">
                   <div class="col-6">
-                    <p id="txtHumidity">Humidity: 55%</p>
+                    <p id="txtHumidity">Humidity: 55%</p> 
                   </div>
 
                   <div class="col-6">
@@ -103,21 +103,13 @@
         </div>
 
         <div class="bg-light border rounded-bottom text-center py-2 mt-1">
-          <small class="text-muted">
-            Weather data from
-            <a href="https://open-meteo.com/" target="_blank">Open-Meteo</a>
-          </small>
+          <p class="text-muted">Weather data from<a href="https://open-meteo.com/" target="_blank">Open-Meteo</a></p> <!--Link for open-meteo website-->
         </div>
       </div>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script>
       const strWeatherUrl = "https://api.open-meteo.com/v1/forecast"; //API to pull weather information based off city
       const strSearchUrl = "https://geocoding-api.open-meteo.com/v1/search"; //API for the geolocation when user inputs the city
@@ -151,14 +143,14 @@
             }
           })
           .then(data => {
-            if (data.results && data.results.length > 0) {
+            if (data.results && data.results.length > 0) { //This pulls the first city in the array if they're multiple cities with multiple names
               const decLatitude = data.results[0].latitude;
               const decLongitude = data.results[0].longitude;
               const strLocationName = data.results[0].name;
 
               document.querySelector("#txtCityInput").value = strLocationName;
 
-              getWeather(decLatitude, decLongitude);
+              getWeather(decLatitude, decLongitude); //Calls the gethWather function with the latitude and longitude of the location
             } else {
               Swal.fire({
                 title: "City Not Found",
@@ -198,7 +190,7 @@
               throw new Error(response.status);
             }
           })
-          .then(data => {
+          .then(data => { //Swithces the preloaded data with the data from the location the user inputed
             document.querySelector("#txtCurrentTemp").innerHTML = data.current.temperature_2m + "°F";
 
             document.querySelector("#txtHumidity").innerHTML = "Humidity: " + data.current.relative_humidity_2m + "%";

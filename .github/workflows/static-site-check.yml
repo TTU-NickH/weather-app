@@ -1,0 +1,42 @@
+# This is the name that will show up in the GitHub Actions tab
+name: Static Site Check
+
+# This section tells GitHub when to run the workflow
+on:
+  # Run this workflow whenever code is pushed to the main branch
+  push:
+    branches:
+      - main
+
+  # Run this workflow whenever a pull request is opened against main
+  pull_request:
+    branches:
+      - main
+
+# Jobs are groups of steps that GitHub will run
+jobs:
+  # This is the name of the job
+  check-files:
+    # GitHub will run this job on a temporary Ubuntu Linux machine
+    runs-on: ubuntu-latest
+
+    # Steps are the individual commands/actions inside the job
+    steps:
+      # This step downloads your GitHub repo onto the temporary Ubuntu machine
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # This step lists all files in the project folder
+      # It helps you see what files GitHub Actions can access
+      - name: List project files
+        run: ls -la
+
+      # This step checks that index.html exists
+      # If index.html is missing, the workflow will fail
+      - name: Check that index.html exists
+        run: test -f index.html
+
+      # This step checks that weather-icon.png exists
+      # If the image file is missing, the workflow will fail
+      - name: Check that weather icon exists
+        run: test -f weather-icon.png

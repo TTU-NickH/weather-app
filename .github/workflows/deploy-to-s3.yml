@@ -17,7 +17,7 @@ jobs:
     steps:
       # Downloads repo files onto the temporary machine
       - name: Checkout repository
-        uses: actions/checkout@4
+        uses: actions/checkout@v4
 
       # Configures AWS credentials using GitHub Secrets
       # This lets GitHub connect to the AWS account safely

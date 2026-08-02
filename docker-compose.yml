@@ -1,0 +1,10 @@
+services:
+  weather-app:
+    image: weather-app:v1
+    container_name: weather-app-container
+
+    ports:
+      - "8080:80"
+
+    volumes:
+      - .:/usr/share/nginx/html

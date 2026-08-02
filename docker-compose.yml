@@ -1,10 +1,14 @@
 services:
-  weather-app:
-    image: weather-app:v1
-    container_name: weather-app-container
-
+  frontend:
+    build: .
+    container_name: weather-frontend
     ports:
       - "8080:80"
-
-    volumes:
-      - .:/usr/share/nginx/html
+    depends_on:
+    - api
+  
+  api:
+    build: ./api
+    container_name: weather-api
+    ports:
+      - "5001:5000"

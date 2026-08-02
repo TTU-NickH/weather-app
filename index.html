@@ -2,24 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="Weather App" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <meta
+      name="apple-mobile-web-app-capable"
+      content="yes"
+    />
+
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black"
+    />
+
+    <meta
+      name="apple-mobile-web-app-title"
+      content="Weather App"
+    />
+
     <title>Nick's Weather App</title>
-    <link rel="icon" href="weather-icon.png" />
-    <link rel="apple-touch-icon" href="weather-icon.png" />
-    <meta name="theme-color" content="#2c3e50" />
+
+    <link
+      rel="icon"
+      href="weather-icon.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      href="weather-icon.png"
+    />
+
+    <meta
+      name="theme-color"
+      content="#2c3e50"
+    />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.3/dist/flatly/bootstrap.min.css"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
@@ -27,11 +59,10 @@
   </head>
 
   <body class="bg-dark">
-    <div
-      class="min-vh-100 d-flex align-items-center justify-content-center px-5"
-    >
+    <div class="min-vh-100 d-flex align-items-center justify-content-center px-5">
       <div style="max-width: 760px; width: 100%">
-        <!--Top thin card that has user type in city then display the information-->
+
+        <!-- City input and weather button -->
         <div class="bg-light border rounded-top text-center py-2">
           <div class="row justify-content-center align-items-center">
             <div class="col-12 col-md-6 mb-2 mb-md-0">
@@ -42,29 +73,40 @@
                 placeholder="Enter city name!"
               />
             </div>
+
             <div class="col-12 col-md-3">
-              <button id="btnGetWeather" class="btn btn-primary w-100">
+              <button
+                id="btnGetWeather"
+                class="btn btn-primary w-100"
+              >
                 Get Weather
-              </button>
-            </div>
-            <div class="col-12 col-md-3 mt-2 mt-md-0">
-              <button id="btnTestBackend" class="btn btn-secondary w-100">
-                Test Backend
               </button>
             </div>
           </div>
         </div>
-        <!--Left Card that shows the current temperature, humidity, and wind as well as shows icon based off weather-->
+
+        <!-- Weather cards -->
         <div class="row justify-content-center mt-1 g-0">
+
+          <!-- Current weather card -->
           <div class="col-11 col-md-6">
             <div class="card shadow-sm mt-0 py-5 h-100">
               <div class="card-body">
                 <div class="row align-items-center text-center">
                   <div class="col-6">
-                    <h1 id="txtCurrentTemp" class="display-4 mb-0 text-nowrap">
+                    <h1
+                      id="txtCurrentTemp"
+                      class="display-4 mb-0 text-nowrap"
+                    >
                       72°F
                     </h1>
-                    <p id="txtCurrentCondition" class="mb-0">Clear Sky</p>
+
+                    <p
+                      id="txtCurrentCondition"
+                      class="mb-0"
+                    >
+                      Clear Sky
+                    </p>
                   </div>
 
                   <div class="col-6">
@@ -80,52 +122,89 @@
 
                 <div class="row text-center">
                   <div class="col-6">
-                    <p id="txtHumidity">Humidity: 55%</p>
+                    <p id="txtHumidity">
+                      Humidity: 55%
+                    </p>
                   </div>
 
                   <div class="col-6">
-                    <p id="txtWind">Wind: 6 mph</p>
+                    <p id="txtWind">
+                      Wind: 6 mph
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!--Right card that shows the upcoming weather for Today =, Tonight, and Tomorrow-->
+
+          <!-- Forecast card -->
           <div class="col-11 col-md-6">
             <div class="card shadow-sm mt-0 py-5 h-100">
               <div class="card-body text-center">
-                <h5 class="mb-4">Upcoming Weather</h5>
+                <h5 class="mb-4">
+                  Upcoming Weather
+                </h5>
+
                 <div class="row align-items-center mb-3">
                   <div class="col-4">
-                    <p class="mb-0">Today</p>
+                    <p class="mb-0">
+                      Today
+                    </p>
                   </div>
+
                   <div class="col-4">
                     <i class="bi bi-sun text-warning"></i>
                   </div>
+
                   <div class="col-4">
-                    <p id="txtTodayForecast" class="mb-0">72°F</p>
+                    <p
+                      id="txtTodayForecast"
+                      class="mb-0"
+                    >
+                      72°F
+                    </p>
                   </div>
                 </div>
+
                 <div class="row align-items-center mb-3">
                   <div class="col-4">
-                    <p class="mb-0">Tonight</p>
+                    <p class="mb-0">
+                      Tonight
+                    </p>
                   </div>
+
                   <div class="col-4">
                     <i class="bi bi-moon-stars text-secondary"></i>
                   </div>
+
                   <div class="col-4">
-                    <p id="txtTonightForecast" class="mb-0">58°F</p>
+                    <p
+                      id="txtTonightForecast"
+                      class="mb-0"
+                    >
+                      58°F
+                    </p>
                   </div>
                 </div>
+
                 <div class="row align-items-center">
                   <div class="col-4">
-                    <p class="mb-0">Tomorrow</p>
+                    <p class="mb-0">
+                      Tomorrow
+                    </p>
                   </div>
+
                   <div class="col-4">
                     <i class="bi bi-cloud-sun text-warning"></i>
                   </div>
+
                   <div class="col-4">
-                    <p id="txtTomorrowForecast" class="mb-0">70°F</p>
+                    <p
+                      id="txtTomorrowForecast"
+                      class="mb-0"
+                    >
+                      70°F
+                    </p>
                   </div>
                 </div>
               </div>
@@ -133,13 +212,18 @@
           </div>
         </div>
 
+        <!-- Footer -->
         <div class="bg-light border rounded-bottom text-center py-2 mt-1">
-          <p class="text-muted">
-            Weather data from<a href="https://open-meteo.com/" target="_blank"
-              >Open-Meteo</a
+          <p class="text-muted mb-0">
+            Weather data from
+            <a
+              href="https://open-meteo.com/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
+              Open-Meteo
+            </a>
           </p>
-          <!--Link for open-meteo website-->
         </div>
       </div>
     </div>
@@ -149,220 +233,175 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script>
-      const strWeatherUrl = "https://api.open-meteo.com/v1/forecast"; //API to pull weather information based off city
-      const strSearchUrl = "https://geocoding-api.open-meteo.com/v1/search"; //API for the geolocation when user inputs the city
+      const cityInput = document.querySelector("#txtCityInput");
+      const weatherButton = document.querySelector("#btnGetWeather");
 
-      document.querySelector("#btnGetWeather").addEventListener("click", () => {
-        const strCity = document.querySelector("#txtCityInput").value.trim();
+      weatherButton.addEventListener("click", handleWeatherRequest);
 
-        //If the user doesn't input a city it gives an error
-        if (strCity == "") {
-          Swal.fire({
-            title: "City Name Required",
-            text: "Please enter a city name to get the weather.",
-            icon: "warning",
-          });
-        } else {
-          getCoordinates(strCity);
+      cityInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          handleWeatherRequest();
         }
       });
 
-      function getCoordinates(strCity) {
-        //Pulls the geo location from user input with the url of the geo locator
-        //Add query parameters that limit the search to the first city that pops up
-        fetch(
-          strSearchUrl +
-            "?name=" +
-            strCity +
-            "&count=1&language=en&format=json",
-        )
-          .then((response) => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              throw new Error(response.status);
-            }
-          })
-          .then((data) => {
-            if (data.results && data.results.length > 0) {
-              //This pulls the first city in the array if they're multiple cities with multiple names
-              const decLatitude = data.results[0].latitude;
-              const decLongitude = data.results[0].longitude;
-              const strLocationName = data.results[0].name;
+      function handleWeatherRequest() {
+        const city = cityInput.value.trim();
 
-              document.querySelector("#txtCityInput").value = strLocationName;
+        if (city === "") {
+          Swal.fire({
+            title: "City Name Required",
+            text: "Please enter a city name to get the weather.",
+            icon: "warning"
+          });
 
-              getWeather(decLatitude, decLongitude); //Calls the gethWather function with the latitude and longitude of the location
-            } else {
-              Swal.fire({
-                title: "City Not Found",
-                text: "Please enter a valid city name.",
-                icon: "error",
-              });
+          return;
+        }
+
+        getWeather(city);
+      }
+
+      function getWeather(city) {
+        setLoadingState(true);
+
+        const backendUrl =
+          "/api/weather?city=" + encodeURIComponent(city);
+
+        fetch(backendUrl)
+          .then(async response => {
+            const data = await response.json();
+
+            if (!response.ok) {
+              throw new Error(
+                data.error || "Unable to retrieve weather information."
+              );
             }
+
+            return data;
           })
-          .catch((error) => {
-            console.error(error);
+          .then(data => {
+            updateWeatherDisplay(data);
+          })
+          .catch(error => {
+            console.error("Weather request failed:", error);
+
             Swal.fire({
-              title: "Oh no, you have an error!",
-              text: "Unable to retrieve city information.",
-              icon: "error",
+              title: "Unable to Get Weather",
+              text: error.message,
+              icon: "error"
             });
+          })
+          .finally(() => {
+            setLoadingState(false);
           });
       }
 
-      //Function that gets weather code with the longitude and latitude based off the city the user inputs
-      function getWeather(decLatitude, decLongitude) {
-        fetch(
-          strWeatherUrl +
-            "?latitude=" +
-            decLatitude +
-            "&longitude=" +
-            decLongitude +
-            "&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code" +
-            "&daily=temperature_2m_max,temperature_2m_min" +
-            "&temperature_unit=fahrenheit" +
-            "&wind_speed_unit=mph" +
-            "&timezone=auto",
-        )
-          .then((response) => {
-            if (response.ok) {
-              return response.json();
-            } else {
-              throw new Error(response.status);
-            }
-          })
-          .then((data) => {
-            //Swithces the preloaded data with the data from the location the user inputed
-            document.querySelector("#txtCurrentTemp").innerHTML =
-              data.current.temperature_2m + "°F";
+      function updateWeatherDisplay(data) {
+        cityInput.value = data.city;
 
-            document.querySelector("#txtHumidity").innerHTML =
-              "Humidity: " + data.current.relative_humidity_2m + "%";
+        document.querySelector("#txtCurrentTemp").textContent =
+          data.current.temperature_2m + "°F";
 
-            document.querySelector("#txtWind").innerHTML =
-              "Wind: " + data.current.wind_speed_10m + " mph";
+        document.querySelector("#txtHumidity").textContent =
+          "Humidity: " +
+          data.current.relative_humidity_2m +
+          "%";
 
-            document.querySelector("#txtTodayForecast").innerHTML =
-              data.daily.temperature_2m_max[0] + "°F";
+        document.querySelector("#txtWind").textContent =
+          "Wind: " +
+          data.current.wind_speed_10m +
+          " mph";
 
-            document.querySelector("#txtTonightForecast").innerHTML =
-              data.daily.temperature_2m_min[0] + "°F";
+        document.querySelector("#txtTodayForecast").textContent =
+          data.daily.temperature_2m_max[0] +
+          "°F";
 
-            document.querySelector("#txtTomorrowForecast").innerHTML =
-              data.daily.temperature_2m_max[1] + "°F";
+        document.querySelector("#txtTonightForecast").textContent =
+          data.daily.temperature_2m_min[0] +
+          "°F";
 
-            //Conditional statements based off weather code
-            //If the weather code is in a specific range, it will display the conditions and the image
-            if (data.current.weather_code == 0) {
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                "Clear Sky";
-              document.querySelector("#txtCurrentIcon").className =
-                "bi bi-sun-fill text-warning";
-            } else if (
-              data.current.weather_code >= 1 &&
-              data.current.weather_code <= 3
-            ) {
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                "Partly Cloudy";
-              document.querySelector("#txtCurrentIcon").className =
-                "bi bi-cloud-sun-fill text-warning";
-            } else if (
-              data.current.weather_code >= 45 &&
-              data.current.weather_code <= 48
-            ) {
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                "Foggy";
-              document.querySelector("#txtCurrentIcon").className =
-                "bi bi-cloud-fog-fill text-secondary";
-            } else if (
-              data.current.weather_code >= 51 &&
-              data.current.weather_code <= 67
-            ) {
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                "Rainy";
-              document.querySelector("#txtCurrentIcon").className =
-                "bi bi-cloud-rain-fill text-primary";
-            } else if (
-              data.current.weather_code >= 71 &&
-              data.current.weather_code <= 77
-            ) {
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                "Snowy";
-              document.querySelector("#txtCurrentIcon").className =
-                "bi bi-snow text-info";
-            } else if (
-              data.current.weather_code >= 80 &&
-              data.current.weather_code <= 82
-            ) {
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                "Rain Showers";
-              document.querySelector("#txtCurrentIcon").className =
-                "bi bi-cloud-rain-heavy-fill text-primary";
-            } else if (
-              data.current.weather_code >= 95 &&
-              data.current.weather_code <= 99
-            ) {
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                "Thunderstorm";
-              document.querySelector("#txtCurrentIcon").className =
-                "bi bi-cloud-lightning-rain-fill text-warning";
-            } else {
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                "Unknown";
-              document.querySelector("#txtCurrentIcon").className =
-                "bi bi-cloud-fill text-secondary";
-            }
-            //Changes the size of the current icon on the webage
-            document.querySelector("#txtCurrentIcon").style.fontSize = "70px";
-          })
-          .catch((error) => {
-            console.error(error);
-            Swal.fire({
-              title: "Oh no, you have an error!",
-              text: "Unable to retrieve weather information.",
-              icon: "error",
-            });
-          });
+        document.querySelector("#txtTomorrowForecast").textContent =
+          data.daily.temperature_2m_max[1] +
+          "°F";
+
+        updateWeatherCondition(
+          data.current.weather_code
+        );
       }
-      const strBackendUrl = "/api/weather";
 
-      document
-        .querySelector("#btnTestBackend")
-        .addEventListener("click", () => {
-          fetch(strBackendUrl)
-            .then((response) => {
-              if (!response.ok) {
-                throw new Error(`Backend returned status ${response.status}`);
-              }
+      function updateWeatherCondition(weatherCode) {
+        const conditionElement =
+          document.querySelector("#txtCurrentCondition");
 
-              return response.json();
-            })
-            .then((data) => {
-              document.querySelector("#txtCityInput").value = data.city;
-              document.querySelector("#txtCurrentTemp").innerHTML =
-                data.temperature + "°F";
-              document.querySelector("#txtCurrentCondition").innerHTML =
-                data.condition;
+        const iconElement =
+          document.querySelector("#txtCurrentIcon");
 
-              Swal.fire({
-                title: "Backend Connected",
-                text: "The frontend received data from the Flask container.",
-                icon: "success",
-              });
-            })
-            .catch((error) => {
-              console.error(error);
+        if (weatherCode === 0) {
+          conditionElement.textContent = "Clear Sky";
+          iconElement.className =
+            "bi bi-sun-fill text-warning";
+        } else if (
+          weatherCode >= 1 &&
+          weatherCode <= 3
+        ) {
+          conditionElement.textContent = "Partly Cloudy";
+          iconElement.className =
+            "bi bi-cloud-sun-fill text-warning";
+        } else if (
+          weatherCode >= 45 &&
+          weatherCode <= 48
+        ) {
+          conditionElement.textContent = "Foggy";
+          iconElement.className =
+            "bi bi-cloud-fog-fill text-secondary";
+        } else if (
+          weatherCode >= 51 &&
+          weatherCode <= 67
+        ) {
+          conditionElement.textContent = "Rainy";
+          iconElement.className =
+            "bi bi-cloud-rain-fill text-primary";
+        } else if (
+          weatherCode >= 71 &&
+          weatherCode <= 77
+        ) {
+          conditionElement.textContent = "Snowy";
+          iconElement.className =
+            "bi bi-snow text-info";
+        } else if (
+          weatherCode >= 80 &&
+          weatherCode <= 82
+        ) {
+          conditionElement.textContent = "Rain Showers";
+          iconElement.className =
+            "bi bi-cloud-rain-heavy-fill text-primary";
+        } else if (
+          weatherCode >= 95 &&
+          weatherCode <= 99
+        ) {
+          conditionElement.textContent = "Thunderstorm";
+          iconElement.className =
+            "bi bi-cloud-lightning-rain-fill text-warning";
+        } else {
+          conditionElement.textContent = "Unknown";
+          iconElement.className =
+            "bi bi-cloud-fill text-secondary";
+        }
 
-              Swal.fire({
-                title: "Backend Connection Failed",
-                text: "The frontend could not reach the Flask API.",
-                icon: "error",
-              });
-            });
-        });
+        iconElement.style.fontSize = "70px";
+      }
+
+      function setLoadingState(isLoading) {
+        weatherButton.disabled = isLoading;
+
+        weatherButton.textContent =
+          isLoading
+            ? "Loading..."
+            : "Get Weather";
+      }
     </script>
   </body>
 </html>

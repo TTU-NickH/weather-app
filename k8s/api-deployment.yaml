@@ -1,0 +1,26 @@
+apiVersion: apps/v1 #Uses Kubernetes API version for Deployments
+kind: Deployment # Tells Kubernetes what object to create
+
+metadata: # This names the deployment
+  name: weather-api
+
+spec:
+  replicas: 2 # Tells kubernetes to keep two API pods running
+
+  selector: #The Deployment manages Pods with this label
+    matchLabels:
+      app: weather-api
+  
+  template: # every Pod created by the Deployment recieves that label. Selector and Pod label must match
+    metadata:
+      labels:
+        app: weather-api
+    
+    spec:
+      containers: 
+        - name: weather-api # Defines the container inside each pod
+          image: weather-api:v2 # Uses the API image Docker Compose builds locally
+          imagePullPolicy: Never # Tells Kubernetes not to pull this image from Docker Hub. It should use image already stored in Docker Desktop
+
+          ports:
+            - containerPort: 5000 #Documents that FLask listens on port 5000 inside the container. Doesn't expose the API yet

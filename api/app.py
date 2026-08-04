@@ -9,8 +9,9 @@ WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
 
 DEFAULT_CITY = os.getenv("DEFAULT_CITY", "Murfreesboro")
 FORECAST_DAYS = int(os.getenv("FORECAST_DAYS", "7"))
+WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 
-
+print(f"API Key Loaded: {WEATHER_API_KEY}")
 @app.route("/weather")
 def weather():
     city = request.args.get("city", DEFAULT_CITY).strip()

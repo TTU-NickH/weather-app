@@ -19,7 +19,7 @@ spec:
     spec:
       containers: 
         - name: weather-api # Defines the container inside each pod
-          image: weather-api:v3 # Uses the API image Docker Compose builds locally
+          image: weather-api:v4 # Uses the API image Docker Compose builds locally
           imagePullPolicy: Never # Tells Kubernetes not to pull this image from Docker Hub. It should use image already stored in Docker Desktop
 
           env:
@@ -34,6 +34,12 @@ spec:
                 configMapKeyRef:
                   name: weather-config
                   key: FORECAST_DAYS
+
+            - name: WEATHER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: weather-secret
+                  key: WEATHER_API_KEY
 
           ports:
             - containerPort: 5000 #Documents that FLask listens on port 5000 inside the container. Doesn't expose the API yet

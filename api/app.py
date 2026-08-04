@@ -1,15 +1,19 @@
 from flask import Flask, jsonify, request
 import requests
+import os
 
 app = Flask(__name__)
 
 GEOCODING_URL = "https://geocoding-api.open-meteo.com/v1/search"
 WEATHER_URL = "https://api.open-meteo.com/v1/forecast"
 
+DEFAULT_CITY = os.getenv("DEFAULT_CITY", "Murfreesboro")
+FORECAST_DAYS = int(os.getenv("FORECAST_DAYS", "7"))
+
 
 @app.route("/weather")
 def weather():
-    city = request.args.get("city", "").strip()
+    city = request.args.get("city", DEFAULT_CITY).strip()
 
     if not city:
         return jsonify({"error": "City is required"}), 400
@@ -53,6 +57,7 @@ def weather():
                 "temperature_unit": "fahrenheit",
                 "wind_speed_unit": "mph",
                 "timezone": "auto",
+                "forecast_days": FORECAST_DAYS,
             },
             timeout=10,
         )

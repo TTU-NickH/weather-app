@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: weather-config
+
+data:
+  DEFAULT_CITY: "Nashville"
+  FORECAST_DAYS: "3"

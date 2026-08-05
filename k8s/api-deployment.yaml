@@ -1,26 +1,27 @@
-apiVersion: apps/v1 #Uses Kubernetes API version for Deployments
-kind: Deployment # Tells Kubernetes what object to create
+apiVersion: apps/v1
+kind: Deployment
 
-metadata: # This names the deployment
+metadata:
   name: weather-api
+  namespace: default
 
 spec:
-  replicas: 2 # Tells kubernetes to keep two API pods running
+  replicas: 2
 
-  selector: #The Deployment manages Pods with this label
+  selector:
     matchLabels:
       app: weather-api
-  
-  template: # every Pod created by the Deployment recieves that label. Selector and Pod label must match
+
+  template:
     metadata:
       labels:
         app: weather-api
-    
+
     spec:
-      containers: 
-        - name: weather-api # Defines the container inside each pod
-          image: weather-api:v4 # Uses the API image Docker Compose builds locally
-          imagePullPolicy: Never # Tells Kubernetes not to pull this image from Docker Hub. It should use image already stored in Docker Desktop
+      containers:
+        - name: weather-api
+          image: weather-api:v4
+          imagePullPolicy: Never
 
           env:
             - name: DEFAULT_CITY
@@ -28,7 +29,7 @@ spec:
                 configMapKeyRef:
                   name: weather-config
                   key: DEFAULT_CITY
-            
+
             - name: FORECAST_DAYS
               valueFrom:
                 configMapKeyRef:
@@ -41,5 +42,14 @@ spec:
                   name: weather-secret
                   key: WEATHER_API_KEY
 
+          volumeMounts:
+            - name: weather-storage
+              mountPath: /app/data
+
           ports:
-            - containerPort: 5000 #Documents that FLask listens on port 5000 inside the container. Doesn't expose the API yet
+            - containerPort: 5000
+
+      volumes:
+        - name: weather-storage
+          persistentVolumeClaim:
+            claimName: weather-pvc
